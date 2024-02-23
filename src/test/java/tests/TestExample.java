@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class TestExample {
@@ -44,7 +45,8 @@ public class TestExample {
 		request.put("name", "Rakshitha");
 		request.put("address", "Hassan");
 		//System.out.println(request.toJSONString());
-		given().body(request.toJSONString()).when().post("/users").then().statusCode(201);
+		given().header("content-Type", "application/json").contentType(ContentType.JSON).accept(ContentType.JSON)
+				.body(request.toJSONString()).when().post("/users").then().statusCode(201);
 
 	}
 }
