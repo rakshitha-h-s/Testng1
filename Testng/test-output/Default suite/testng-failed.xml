@@ -6,6 +6,7 @@
       <class name="tests.TestOpenBrowser">
         <methods>
           <include name="linkTest"/>
+          <include name="googleLogoTest"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>

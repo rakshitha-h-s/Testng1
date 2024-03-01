@@ -10,16 +10,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 public class TestOpenBrowser {
 	WebDriver driver;
 	@BeforeMethod
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "C:/Users/Rakshita/drivers/chromedriver.exe");
-		driver=new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver", "C:/Users/Rakshita/drivers/chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
+		 driver = new ChromeDriver();
+		//driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.get("http://www.google.com");
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 	}
 	@Test
 	public void searchTest()
@@ -30,10 +34,10 @@ public class TestOpenBrowser {
 	@Test
 	public void googleLogoTest()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,10);
-     	WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("hplogo")));
-     	boolean b =element.isDisplayed();
-		//boolean b=driver.findElement(By.xpath("//*[@id='hplogo']")).isDisplayed();
+		WebDriverWait wait = new WebDriverWait(driver,40);
+     	//WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("lnxdpd")));
+     	
+		boolean b=driver.findElement(By.xpath("//*[@id='hplogo']")).isDisplayed();
 		System.out.print(b);
 	}
 	@Test
