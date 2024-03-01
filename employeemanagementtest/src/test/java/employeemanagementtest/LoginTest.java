@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -68,11 +69,28 @@ public class LoginTest {
 
      Thread.sleep(2000);
      js.executeScript("window.scrollBy(0,-700)");
+     WebElement drop=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[6]/div/div[2]/div/div")));
+     drop.click();
+     Thread.sleep(4000);
+     WebElement drop1=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[6]/div/div[2]/div/div")));
+     int n=4;
+     if (drop1.isDisplayed() && drop1.isEnabled()) {
+    	 Actions actions = new Actions(driver);
+    	 for (int i = 0; i < 28; i++) {
+    		 actions.sendKeys(Keys.ARROW_DOWN).perform();
+ 		      Thread.sleep(1000);
+    		 if(i==n) {
+    			 break;
+    		 }	     // Optional: Add a small delay between each key press
+    		}
+    	}
      
-   
+     
+     Thread.sleep(2000);
 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]"))).click();
 Thread.sleep(3000); 
 js.executeScript("window.scrollBy(0,700)");
+//js.executeScript("window.scrollBy(0,700)");
 Thread.sleep(10000); 
 	
 	}
