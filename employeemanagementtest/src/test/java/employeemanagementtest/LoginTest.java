@@ -1,6 +1,8 @@
 package employeemanagementtest;
 
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,95 +10,50 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.sun.tools.sjavac.Log;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
+import employeemanagementtest.common.pages.Loginpage;
+import employeemanagementtest.common.utils.Browsersconfig;
+import employeemanagementtest.common.pages.Loginpage.*;
 public class LoginTest {
-	WebDriver driver;
-	@BeforeMethod
-	public void setUp() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-	    }
-	
-	@Test
-	public void login() throws InterruptedException
-	{
-		WebDriverWait wait = new WebDriverWait(driver,40);
-     	WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("username")));
-        element.sendKeys("Admin");
-        Thread.sleep(1000);
-     	WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("password")));
-        element1.sendKeys("admin123");
-        Thread.sleep(1000);
-        WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button"));
+ 
+    private Loginpage loginPage;
+     private WebDriver driver;
 
-        loginButton.click();
+    @BeforeMethod
+    public void setUp() throws IOException {	
+    	
+    	   // String browser = Loginpage.loadProperties();
+    	    driver = Browsersconfig.createDriver(Loginpage.loadProperties());
+    	    loginPage = new Loginpage(driver);
+    	    Loginpage.browserSetup(driver);
+    	    //driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    } 
+
+    @Test
+    public void testLogin() throws InterruptedException {
+    	loginPage.username("Admin");
+    	Thread.sleep(1000);
+     	loginPage.password("admin123");
+        Thread.sleep(1000);
+        loginPage.loginButton();
         Thread.sleep(1000);
         
-        String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index", "Redirected to the login page.");
-        
+        boolean res=loginPage.isLoginSuccessful();
+        System.out.print(res);
         Thread.sleep(1000);
-        
-        WebElement adminicon = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a")));
-        adminicon.click();
-      
-        WebElement employeename = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input")));
-        employeename.sendKeys("joker");
-        Thread.sleep(1000);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]"))).click(); 
-        Thread.sleep(1000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        loginPage.adminButton();
+    }
 
-     // Scroll down by a certain pixel value (e.g., 500 pixels)
-     js.executeScript("window.scrollBy(0,700)");
-
-     Thread.sleep(2000);
-     js.executeScript("window.scrollBy(0,-700)");
-     WebElement drop=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[6]/div/div[2]/div/div")));
-     drop.click();
-     Thread.sleep(4000);
-     WebElement drop1=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[6]/div/div[2]/div/div")));
-     int n=4;
-     if (drop1.isDisplayed() && drop1.isEnabled()) {
-    	 Actions actions = new Actions(driver);
-    	 for (int i = 0; i < 28; i++) {
-    		 actions.sendKeys(Keys.ARROW_DOWN).perform();
- 		      Thread.sleep(1000);
-    		 if(i==n) {
-    			 break;
-    		 }	     // Optional: Add a small delay between each key press
-    		}
-    	}
-     
-     
-     Thread.sleep(2000);
-wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]"))).click();
-Thread.sleep(3000); 
-js.executeScript("window.scrollBy(0,700)");
-//js.executeScript("window.scrollBy(0,700)");
-Thread.sleep(10000); 
-	
-	}
-	@AfterMethod
-	public void tearDown() {
-		driver.quit();
-	}
-
+    @AfterMethod
+    public void tearDown() {
+        Loginpage.closeBrowser();
+    }
 }
