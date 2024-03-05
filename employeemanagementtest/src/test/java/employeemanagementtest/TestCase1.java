@@ -24,18 +24,18 @@ public class TestCase1 {
 	    Loginpage.browserSetup(driver);
 	}
 	@Test
-	public void login1() throws InterruptedException
+	public void ViewAllEmployee() throws InterruptedException
 	{
-		loginPage.username("Admin");
+		loginPage.setUsername("Admin");
     	Thread.sleep(1000);
-     	loginPage.password("admin123");
+     	loginPage.setPassword("admin123");
         Thread.sleep(1000);
-        loginPage.loginButton();
+        loginPage.clickLoginButton();
         Thread.sleep(1000);
         boolean res=loginPage.isLoginSuccessful();
         System.out.print(res);
         Thread.sleep(1000);
-        loginPage.adminButton();
+        loginPage.clickPimButton();
        
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -43,15 +43,14 @@ public class TestCase1 {
         Thread.sleep(5000);
 
         js.executeScript("window.scrollBy(0,400)");
-        Thread.sleep(5000);
-        js.executeScript("window.scrollBy(0,800)");
-        Thread.sleep(5000);
-        js.executeScript("window.scrollBy(0,800)");
+        Thread.sleep(8000);
+   
+        js.executeScript("window.scrollBy(0,900)");
         Thread.sleep(5000);
 
 	}
 	  @AfterMethod
 	    public void tearDown() {
-		  Loginpage.closeBrowser();
+		  loginPage.closeBrowser();
 	    }
 }
