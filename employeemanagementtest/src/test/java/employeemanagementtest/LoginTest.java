@@ -8,28 +8,27 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import employeemanagementtest.common.pages.BasePage;
 import employeemanagementtest.common.pages.Loginpage;
 import employeemanagementtest.common.utils.Browsersconfig;
 
 public class LoginTest {
- 
-    private Loginpage loginPage;
-    private WebDriver driver;
-
+	private Loginpage loginPage;
+	private WebDriver driver;
+	
     @BeforeMethod
-    public void setUp() throws IOException {	
-
-    	    driver = Browsersconfig.createDriver(Loginpage.loadProperties());
-    	    loginPage = new Loginpage(driver);
-    	    Loginpage.browserSetup(driver);
-    	    
-    } 
+	public void setUp() throws IOException
+	{
+		driver = Browsersconfig.createDriver(Loginpage.loadProperties());
+	    loginPage = new Loginpage(driver);
+	    Loginpage.browserSetup(driver);
+	}
 
     @Test
     public void testLogin() throws InterruptedException {
     	loginPage.setUsername("Admin");
     	Thread.sleep(1000);
-     	loginPage.setPassword("admin123");
+    	loginPage.setPassword("admin123");
         Thread.sleep(1000);
         loginPage.clickLoginButton();
         Thread.sleep(1000);
@@ -39,10 +38,15 @@ public class LoginTest {
         Thread.sleep(1000);
         loginPage.clickPimButton() ;
     }
-
-    @AfterMethod
+   @AfterMethod
     public void tearDown() {
-        Loginpage loginpage2 = new Loginpage(driver);
-		loginpage2.closeBrowser();
+	  loginPage.closeBrowser();
     }
-}
+    
+
+	   }
+
+
+
+   
+

@@ -123,6 +123,36 @@ public class TestCase2 {
         testCaseTwo.scroll();
          Thread.sleep(10000);
 	}
+	//search employee by passing all the categories
+	@Test
+	public void searchByAllCategory() throws InterruptedException
+	{
+		TestCaseTwo.loginStep(loginPage);
+		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
+		testCaseTwo.setUsername("sam");
+        Thread.sleep(1000);
+        testCaseTwo.setEmployeeId("0391");
+        Thread.sleep(1000);
+        testCaseTwo.employeeSatusSelect();		
+        Thread.sleep(3000);
+        testCaseTwo.selectEmployeeStatus(3);
+        Thread.sleep(1000);
+        testCaseTwo.clickIncludeCategory();
+		testCaseTwo.selectIncludeCategory(2);
+		Thread.sleep(1000);
+		testCaseTwo.superVisor("Anas");
+		 Thread.sleep(3000);
+        testCaseTwo.jobTitleset();
+        testCaseTwo.jobTitleselect(4);
+        Thread.sleep(1000);
+        testCaseTwo.subUnitName(2);
+        Thread.sleep(3000);
+        testCaseTwo.clickButton();
+        testCaseTwo.scroll();
+         Thread.sleep(10000);
+        
+		
+	}
 	@AfterMethod
     public void tearDown() {
 		loginPage.closeBrowser();

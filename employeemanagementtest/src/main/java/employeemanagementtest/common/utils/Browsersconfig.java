@@ -11,7 +11,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Browsersconfig {
 	public static WebDriver createDriver(String browser){
-		WebDriver driver = null;
+		WebDriver driver;
 		 switch (browser.toLowerCase()) {
 	        case "chrome":
 	            WebDriverManager.chromedriver().setup();

@@ -16,8 +16,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class TestCaseTwo {
+	//
 	private WebDriver driver;
-	
+	@FindBy(how = How.XPATH, using = "//input[@placeholder='Type for hints...']")
+	private WebElement employeeName;
+	@FindBy(how=How.XPATH,using="//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space' and @data-v-408b665e='']")
+	private WebElement button;
+	@FindBy(how=How.XPATH,using="(//input[@class='oxd-input oxd-input--active'])[2]")
+	private WebElement employeeId;
+	@FindBy(how=How.XPATH,using="(//div[@class='oxd-select-text-input' and @data-v-67d2aedf=''])[3]")
+	private WebElement jobTitle;
+	@FindBy(how=How.XPATH,using="//div[@class='oxd-select-text-input' and @data-v-67d2aedf='']")
+	private WebElement employeeStatus;
+	@FindBy(how=How.XPATH,using="//div[@class='oxd-select-text-input' and text()='Current Employees Only']")
+	private WebElement includeCategory;
+	@FindBy(how=How.XPATH,using="(//input[@placeholder='Type for hints...'])[2]")
+	private WebElement supervisorName;
+	@FindBy(how=How.XPATH,using="(//div[@class='oxd-select-text-input' and @data-v-67d2aedf=''])[4]")
+	private WebElement subUnitName;
 	public static void loginStep(Loginpage loginPage) throws InterruptedException
 	{
 		loginPage.setUsername("Admin");
@@ -36,23 +52,23 @@ public class TestCaseTwo {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-	@FindBy(how = How.XPATH, using = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input")
-	private WebElement employeeName;
+	
+	
 	public void setUsername(String username) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(employeeName));
        employeeName.sendKeys(username);
    }
-	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]")
-	private WebElement button;
+	
+	
+	
 	public void clickButton()
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	   wait.until(ExpectedConditions.visibilityOf(button));
-	     button.click();
+	    wait.until(ExpectedConditions.visibilityOf(button));
+	    button.click();
 	}
-	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/input")
-	private WebElement employeeId;
+	
 	public void setEmployeeId(String id)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -60,8 +76,9 @@ public class TestCaseTwo {
 	    employeeId.sendKeys(id);
 	
 	}
-	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[6]/div/div[2]/div/div/div[1]")
-	private WebElement jobTitle;
+	
+			
+	
 	public void jobTitleset()
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -84,8 +101,8 @@ public class TestCaseTwo {
         }
          actions.sendKeys(Keys.ENTER).perform();
 	}
-	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/div[1]")
-	private WebElement employeeStatus;
+	
+	
 	public void employeeSatusSelect()
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -107,8 +124,9 @@ public class TestCaseTwo {
        }
         actions.sendKeys(Keys.ENTER).perform();
 	}
-	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div/div[1]")
-	private WebElement includeCategory;
+	
+	
+	
 	public void clickIncludeCategory()
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -130,8 +148,9 @@ public class TestCaseTwo {
         }
          actions.sendKeys(Keys.ENTER).perform();
 	}
-	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[5]/div/div[2]/div/div/input")
-	private WebElement supervisorName;
+	
+	
+	
 	public void superVisor(String name) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -142,8 +161,7 @@ public class TestCaseTwo {
 	    actions.sendKeys(Keys.ARROW_DOWN).perform();
 		actions.sendKeys(Keys.ENTER).perform();    
 	}
-	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[7]/div/div[2]/div/div/div[1]")
-	private WebElement subUnitName;
+	
 	public void subUnitName(int n) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

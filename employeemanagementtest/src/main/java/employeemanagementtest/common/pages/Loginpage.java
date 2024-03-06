@@ -13,11 +13,27 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import employeemanagementtest.common.utils.Browsersconfig;
 
 
 public class Loginpage {
     private  WebDriver driver;
     
+    @FindBy(how = How.CSS, using = "[name='username']")
+    private WebElement usernameElement;
+
+    @FindBy(how = How.CSS, using = "[name='password']")
+    private WebElement passwordElement;
+
+    @FindBy(how = How.XPATH, using = "//button[@type='submit']")
+    private WebElement loginButton;
+    
+    @FindBy(how = How.XPATH, using = "//a[@href='/web/index.php/pim/viewPimModule']")
+    private WebElement pimButton;
+  //*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a
     public static String loadProperties() throws IOException {
     Properties properties = new Properties();
 	FileInputStream file = new FileInputStream("src/main/resources/config.properties");
@@ -44,18 +60,7 @@ public class Loginpage {
 				}		
  
     }
-       
-    @FindBy(how = How.CSS, using = "[name='username']")
-    private WebElement usernameElement;
-
-    @FindBy(how = How.CSS, using = "[name='password']")
-    private WebElement passwordElement;
-
-    @FindBy(how = How.XPATH, using = "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")
-    private WebElement loginButton;
-
-    @FindBy(how = How.XPATH, using = "//*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a")
-    private WebElement pimButton;
+   
 
     public Loginpage(WebDriver driver) {
         this.driver = driver;
@@ -63,25 +68,25 @@ public class Loginpage {
     }
 
     public void setUsername(String username) {
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(usernameElement));
         usernameElement.sendKeys(username);
     }
 
     public void setPassword(String password) {
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
          wait.until(ExpectedConditions.visibilityOf(passwordElement));
         passwordElement.sendKeys(password);
     }
 
     public void clickLoginButton() {
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(loginButton));
         loginButton.click();
     }
 
     public void clickPimButton() {
-    	 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	 WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
          wait.until(ExpectedConditions.visibilityOf(pimButton));
         pimButton.click();
     }
@@ -89,5 +94,27 @@ public class Loginpage {
     public boolean isLoginSuccessful() {
         return driver.getCurrentUrl().equals("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
     }
+    @BeforeMethod
+	public void setUp() throws IOException
+	{
+    	Properties properties = new Properties();
+    	FileInputStream file = new FileInputStream("src/main/resources/config.properties");
+    	properties.load(file);
+    	String browser = properties.getProperty("browser");
+    	driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		
+	}
+    @AfterMethod
+	public void tearDown()
+	{
+		try {
+			driver.quit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
