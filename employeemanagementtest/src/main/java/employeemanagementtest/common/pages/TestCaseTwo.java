@@ -28,7 +28,9 @@ public class TestCaseTwo {
 	private WebElement jobTitle;
 	@FindBy(how=How.XPATH,using="//div[@class='oxd-select-text-input' and @data-v-67d2aedf='']")
 	private WebElement employeeStatus;
-	@FindBy(how=How.XPATH,using="//div[@class='oxd-select-text-input' and text()='Current Employees Only']")
+	
+	//div[@class='oxd-select-text-input' and text()='Current Employees Only']
+	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div/div[1]")
 	private WebElement includeCategory;
 	@FindBy(how=How.XPATH,using="(//input[@placeholder='Type for hints...'])[2]")
 	private WebElement supervisorName;
@@ -37,15 +39,11 @@ public class TestCaseTwo {
 	public static void loginStep(Loginpage loginPage) throws InterruptedException
 	{
 		loginPage.setUsername("Admin");
-    	Thread.sleep(1000);
      	loginPage.setPassword("admin123");
-        Thread.sleep(1000);
         loginPage.clickLoginButton();
-        Thread.sleep(1000);
         
         boolean res=loginPage.isLoginSuccessful();
         System.out.print(res);
-        Thread.sleep(1000);
         loginPage.clickPimButton();
 	}
 	public TestCaseTwo(WebDriver driver) {
@@ -85,22 +83,7 @@ public class TestCaseTwo {
 	    wait.until(ExpectedConditions.visibilityOf(jobTitle));
 	    jobTitle.click();
 	}
-	public void jobTitleselect(int n) throws InterruptedException
-	{
-		 //4
-         Actions actions = new Actions(driver);
-         if (jobTitle.isDisplayed() && jobTitle.isEnabled()) {
-        	
-        	 int i=1;
-        	 while(i<=n)
-        	 {
-        		 actions.sendKeys(Keys.ARROW_DOWN).perform();
-    		     Thread.sleep(1000);
-    		     i++;
-        	 }
-        }
-         actions.sendKeys(Keys.ENTER).perform();
-	}
+	
 	
 	
 	public void employeeSatusSelect()
@@ -109,21 +92,7 @@ public class TestCaseTwo {
 	    wait.until(ExpectedConditions.visibilityOf(employeeStatus));
 	    employeeStatus.click();
 	}
-	public void selectEmployeeStatus(int n) throws InterruptedException
-	{
-		//3;
-		 Actions actions = new Actions(driver);
-        if (employeeStatus.isDisplayed() && employeeStatus.isEnabled()) {
-       	 int i=1;
-       	 while(i<=n)
-       	 {
-       		 actions.sendKeys(Keys.ARROW_DOWN).perform();
-   		     Thread.sleep(1000);
-   		     i++;
-       	 }
-       }
-        actions.sendKeys(Keys.ENTER).perform();
-	}
+	
 	
 	
 	
@@ -133,21 +102,6 @@ public class TestCaseTwo {
 	    wait.until(ExpectedConditions.visibilityOf(includeCategory));
 	    includeCategory.click();
 	}
-	public void selectIncludeCategory(int n) throws InterruptedException
-	{
-		 //2;
-		 Actions actions = new Actions(driver);
-         if (includeCategory.isDisplayed() && includeCategory.isEnabled()) {
-        	 int i=1;
-        	 while(i<=n)
-        	 {
-        		 actions.sendKeys(Keys.ARROW_DOWN).perform();
-    		     Thread.sleep(1000);
-    		     i++;
-        	 }
-        }
-         actions.sendKeys(Keys.ENTER).perform();
-	}
 	
 	
 	
@@ -156,33 +110,68 @@ public class TestCaseTwo {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(supervisorName));
 	    supervisorName.sendKeys(name);
-	    Thread.sleep(3000);
 	    Actions actions=new Actions(driver);
 	    actions.sendKeys(Keys.ARROW_DOWN).perform();
 		actions.sendKeys(Keys.ENTER).perform();    
 	}
 	
-	public void subUnitName(int n) throws InterruptedException
-	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	    wait.until(ExpectedConditions.visibilityOf(subUnitName));
-	    subUnitName.click();
-	    Actions actions = new Actions(driver);
-        if ( subUnitName.isDisplayed() &&  subUnitName.isEnabled()) {
-       	 int i=1;
-       	 while(i<=n)
-       	 {
-       		 actions.sendKeys(Keys.ARROW_DOWN).perform();
-   		     Thread.sleep(1000);
-   		     i++;
-       	 }
-       }
-        actions.sendKeys(Keys.ENTER).perform();
-	}
+	
 	public void scroll()
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,700)");
 	}
+	public void setJobTitle(String string1) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOf(jobTitle));
+	    jobTitle.click();
+	    Actions actions = new Actions(driver);
+	    if ( jobTitle.isDisplayed() &&  jobTitle.isEnabled()) {
+	    	while(!jobTitle.getText().equals(string1)) {
+	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	}
+	    	actions.sendKeys(Keys.ENTER).perform();
+	    }
+		
+	}
+	public void setIncludeCategory(String string) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    wait.until(ExpectedConditions.visibilityOf(includeCategory));
+	    includeCategory.click();
+	    Actions actions = new Actions(driver);
+	    if (  includeCategory.isDisplayed() &&   includeCategory.isEnabled()) {
+	    	while(!includeCategory.getText().equals(string)) {
+	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	}
+	    	actions.sendKeys(Keys.ENTER).perform();
+	    }		
+	}
+	public void setEmployeeStatus(String string) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOf(employeeStatus));
+	    employeeStatus.click();
+	    Actions actions = new Actions(driver);
+	    if ( employeeStatus.isDisplayed() &&  employeeStatus.isEnabled()) {
+	    	while(! employeeStatus.getText().equals(string)) {
+	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	}
+	    	actions.sendKeys(Keys.ENTER).perform();
+	    }
+		
+	}
+	public void setSubUnit(String string) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOf(subUnitName));
+	    subUnitName.click();
+	    Actions actions = new Actions(driver);
+	    if ( subUnitName.isDisplayed() &&  subUnitName.isEnabled()) {
+	    	while(! subUnitName.getText().equals(string)) {
+	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	}
+	    	actions.sendKeys(Keys.ENTER).perform();
+	    }
+		
+	}
+	 
 
 }

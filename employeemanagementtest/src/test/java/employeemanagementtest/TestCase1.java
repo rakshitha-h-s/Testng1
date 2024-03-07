@@ -27,18 +27,12 @@ public class TestCase1 {
 	public void ViewAllEmployee() throws InterruptedException
 	{
 		loginPage.setUsername("Admin");
-    	Thread.sleep(1000);
      	loginPage.setPassword("admin123");
-        Thread.sleep(1000);
         loginPage.clickLoginButton();
-        Thread.sleep(1000);
         boolean res=loginPage.isLoginSuccessful();
         System.out.print(res);
-        Thread.sleep(1000);
-        loginPage.clickPimButton();
-       
+        loginPage.clickPimButton();    
         JavascriptExecutor js = (JavascriptExecutor) driver;
-
         js.executeScript("window.scrollBy(0,800)");
         Thread.sleep(5000);
 
@@ -51,6 +45,6 @@ public class TestCase1 {
 	}
 	  @AfterMethod
 	    public void tearDown() {
-		  loginPage.closeBrowser();
+		  driver.quit();
 	    }
 }

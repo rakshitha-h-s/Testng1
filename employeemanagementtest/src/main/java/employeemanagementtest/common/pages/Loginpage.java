@@ -33,7 +33,6 @@ public class Loginpage {
     
     @FindBy(how = How.XPATH, using = "//a[@href='/web/index.php/pim/viewPimModule']")
     private WebElement pimButton;
-  //*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a
     public static String loadProperties() throws IOException {
     Properties properties = new Properties();
 	FileInputStream file = new FileInputStream("src/main/resources/config.properties");
@@ -94,27 +93,6 @@ public class Loginpage {
     public boolean isLoginSuccessful() {
         return driver.getCurrentUrl().equals("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
     }
-    @BeforeMethod
-	public void setUp() throws IOException
-	{
-    	Properties properties = new Properties();
-    	FileInputStream file = new FileInputStream("src/main/resources/config.properties");
-    	properties.load(file);
-    	String browser = properties.getProperty("browser");
-    	driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		
-	}
-    @AfterMethod
-	public void tearDown()
-	{
-		try {
-			driver.quit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    
 
 }

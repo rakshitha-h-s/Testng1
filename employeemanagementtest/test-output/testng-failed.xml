@@ -6,8 +6,8 @@
       <class name="employeemanagementtest.TestCase2">
         <methods>
           <include name="tearDown"/>
+          <include name="includeCategory"/>
           <include name="setUp"/>
-          <include name="searchByAllCategory"/>
         </methods>
       </class> <!-- employeemanagementtest.TestCase2 -->
     </classes>

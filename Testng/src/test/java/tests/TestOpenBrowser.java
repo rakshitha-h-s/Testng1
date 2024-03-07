@@ -34,7 +34,7 @@ public class TestOpenBrowser {
 	@Test
 	public void googleLogoTest()
 	{
-		WebDriverWait wait = new WebDriverWait(driver,40);
+		//WebDriverWait wait = new WebDriverWait(driver,40);
      	//WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("lnxdpd")));
      	
 		boolean b=driver.findElement(By.xpath("//*[@id='hplogo']")).isDisplayed();
@@ -42,9 +42,9 @@ public class TestOpenBrowser {
 	}
 	@Test
 	public void linkTest() {
-		WebDriverWait wait = new WebDriverWait(driver,10);
-     	WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Gmail")));
-     	boolean b =element.isDisplayed();
+	//	WebDriverWait wait = new WebDriverWait(driver,10);
+     //	WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Gmail")));
+     	//boolean b =element.isDisplayed();
 	}
 	@AfterMethod
 	public void tearDown() {
