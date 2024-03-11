@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PractiseBase {
@@ -33,6 +35,15 @@ public class PractiseBase {
 	//Identifying by Link text
 	@FindBy(how=How.LINK_TEXT,using="Admin")
 	private WebElement adminIcon;
+	@FindBy(how=How.ID,using="gh-cat")
+	WebElement cat;
+	public void clickCheckBox() {
+	WebDriverWait wait1 = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+	Select select = new Select(driver.findElement(By.id("gh-cat")));
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	WebElement dropdownElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("gh-cat")));
+	select.selectByVisibleText("Automotive");
+}
 	public void setUsername(String username) {
     	WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(username1));

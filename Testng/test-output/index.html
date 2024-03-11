@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse--791201804\testng-customsuite.xml</span>
+                    <span>C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse-1296958395\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content skipped suite-Default_suite">
                       <span>
                         <img src="skipped.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.Test1" class="method navigator-link" hash-for-method="testLogin">testLogin</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.TestOpenBrowser" class="method navigator-link" hash-for-method="googleLogoTest">googleLogoTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content skipped suite-Default_suite -->
@@ -121,17 +121,22 @@
           <div class="suite-Default_suite-class-skipped">
             <div class="main-panel-header rounded-window-top">
               <img src="skipped.png"/>
-              <span class="class-name">tests.Test1</span>
+              <span class="class-name">tests.TestOpenBrowser</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testLogin">
-                  </a> <!-- testLogin -->
-                  <span class="method-name">testLogin</span>
-                  <div class="stack-trace">java.lang.NoSuchMethodError: &apos;void org.openqa.selenium.support.PageFactory.initElements(org.openqa.selenium.SearchContext, java.lang.Object)&apos;
-	at common.pages.BasePage.&lt;init&gt;(BasePage.java:30)
-	at tests.Test1.setUp(Test1.java:21)
+                  <a name="googleLogoTest">
+                  </a> <!-- googleLogoTest -->
+                  <span class="method-name">googleLogoTest</span>
+                  <div class="stack-trace">io.github.bonigarcia.wdm.config.WebDriverManagerException: javax.net.ssl.SSLException: Tag mismatch!
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1414)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.fallback(WebDriverManager.java:1430)
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1408)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:426)
+	at tests.TestOpenBrowser.setUp(TestOpenBrowser.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -164,6 +169,39 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: javax.net.ssl.SSLException: Tag mismatch!
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:133)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:123)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1513)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1484)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at org.apache.hc.core5.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:195)
+	at org.apache.hc.core5.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:173)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1487)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1107)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1460)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1085)
+	at org.apache.commons.io.FileUtils.copyToFile(FileUtils.java:1026)
+	at org.apache.commons.io.FileUtils.copyInputStreamToFile(FileUtils.java:934)
+	at io.github.bonigarcia.wdm.online.Downloader.downloadAndExtract(Downloader.java:140)
+	at io.github.bonigarcia.wdm.online.Downloader.download(Downloader.java:92)
+	at io.github.bonigarcia.wdm.WebDriverManager.download(WebDriverManager.java:1272)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1183)
+	... 37 more
+Caused by: javax.crypto.AEADBadTagException: Tag mismatch!
+	at java.base/com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt.doFinal(GaloisCounterMode.java:1493)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineDoFinal(GaloisCounterMode.java:447)
+	at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2500)
+	at java.base/sun.security.ssl.SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher.decrypt(SSLCipher.java:1933)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decodeInputRecord(SSLSocketInputRecord.java:264)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:181)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+	... 54 more
 
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -173,7 +211,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse--791201804\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse-1296958395\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -182,11 +220,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tests.Test1&quot;&gt;
+      &lt;class name=&quot;tests.TestOpenBrowser&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;testLogin&quot;/&gt;
+          &lt;include name=&quot;googleLogoTest&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- tests.Test1 --&gt;
+      &lt;/class&gt; &lt;!-- tests.TestOpenBrowser --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -228,8 +266,8 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testLogin')
-data.setCell(0, 2, 'tests.Test1')
+data.setCell(0, 1, 'googleLogoTest')
+data.setCell(0, 2, 'tests.TestOpenBrowser')
 data.setCell(0, 3, 0);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
@@ -250,9 +288,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">tests.TestOpenBrowser</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">linkTest</span>
+                <br/>
+                <span class="ignored-method-name">searchTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -261,7 +308,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.Test1</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.TestOpenBrowser</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <img src="failed.png">
                 </img>

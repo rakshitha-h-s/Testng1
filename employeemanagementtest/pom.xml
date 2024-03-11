@@ -16,17 +16,6 @@
     <artifactId>webdrivermanager</artifactId>
     <version>5.7.0</version>
 </dependency>
-<dependency>
-    <groupId>ch.qos.logback</groupId>
-    <artifactId>logback-classic</artifactId>
-    <version>1.5.1</version>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.7.32</version>
-</dependency>
 
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
@@ -39,7 +28,5 @@
         <version>4.18.1</version>
     </dependency>
 </dependencies>
-
-
 
 </project>

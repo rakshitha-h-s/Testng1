@@ -1,7 +1,10 @@
 package employeemanagementtest;
 
+import static org.testng.Assert.fail;
+
 import java.io.IOException;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import org.testng.annotations.AfterMethod;
@@ -53,6 +56,13 @@ public class TestCase2 {
         testCaseTwo.clickButton();
         testCaseTwo.scroll();
 	}
+	@Test
+	public void searchByJobTitle1() throws InterruptedException{
+		TestCaseTwo.loginStep(loginPage);
+		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
+		 testCaseTwo.setJobTitle("Non-existent Job Title");
+		        
+	}
 	//searching employee by their employee status
 	@Test
 	public void searchByEmployeeStatus() throws InterruptedException
@@ -60,8 +70,8 @@ public class TestCase2 {
 		
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
-		testCaseTwo.employeeSatusSelect();		
-         testCaseTwo.setEmployeeStatus("Full-Time Probation");
+		//testCaseTwo.employeeSatusSelect();		
+         testCaseTwo.setEmployeeStatus("Full-Time Probation1233");
          testCaseTwo.clickButton();
          testCaseTwo.scroll();
 	}
@@ -70,7 +80,7 @@ public class TestCase2 {
 	public void searchBySupervisorName() throws InterruptedException{
 		  TestCaseTwo.loginStep(loginPage);
 		  TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
-		   testCaseTwo.superVisor("Odis");
+		   testCaseTwo.superVisor("Bob");
 		   testCaseTwo.clickButton();
 		   testCaseTwo.scroll();
 		
@@ -80,8 +90,7 @@ public class TestCase2 {
 	public void searchByIncludeCategory() throws InterruptedException{
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
-		testCaseTwo.clickIncludeCategory();
-		testCaseTwo.setIncludeCategory("Past Employees Only");
+		testCaseTwo.setIncludeCategory("Past Employees Only123432");
          testCaseTwo.clickButton();    
          testCaseTwo.scroll();
 	}
@@ -113,7 +122,7 @@ public class TestCase2 {
 	{
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
-		testCaseTwo.setJobTitle("Automaton Tester");
+		testCaseTwo.setJobTitle1("Automation Tester");
 		testCaseTwo.clickButton();
 	}
 	@Test
@@ -121,7 +130,7 @@ public class TestCase2 {
 	{
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
-		testCaseTwo.setIncludeCategory("Past Employees Only");
+		testCaseTwo.setIncludeCategory1("Past Employees Only");
 		testCaseTwo.clickButton();
 	}
 	@Test
@@ -129,7 +138,7 @@ public class TestCase2 {
 	{
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
-		testCaseTwo.setEmployeeStatus("Full-Time Probation");
+		testCaseTwo.setEmployeeStatus1("Full-Time Contract1");
 		testCaseTwo.clickButton();
 	}
 	@Test
@@ -137,27 +146,25 @@ public class TestCase2 {
 	{
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
-		testCaseTwo.setSubUnit("Engineering");
+		testCaseTwo.setSubUnit1("Engineering");
 		testCaseTwo.clickButton();
 	}
 	@Test
-	public void testAllCategory() throws InterruptedException
-	{
+	public void testAllCategory() throws InterruptedException	{
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
 		testCaseTwo.setUsername("sam");
         testCaseTwo.setEmployeeId("0449");
-        testCaseTwo.setEmployeeStatus("Full-Time Probation");
-        testCaseTwo.setIncludeCategory("Current and Past Employees");
-        testCaseTwo.superVisor("Amit");
-		testCaseTwo.setJobTitle("Content Specialist");
-		testCaseTwo.setSubUnit("Engineering");
+        testCaseTwo.setEmployeeStatus1("Full-Time Probation");
+        testCaseTwo.setIncludeCategory1("Current and Past Employees");
+        testCaseTwo.superVisor("Brandy");
+		testCaseTwo.setJobTitle1("Content Specialist");
+		testCaseTwo.setSubUnit1("Engineering");
 		testCaseTwo.clickButton();
 		   
 	}
 	@AfterMethod
-    public void tearDown() {
-		
+    public void tearDown() {	
 		driver.quit();
     }
 

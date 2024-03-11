@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Mar 07 15:06:20 IST 2024</td>
+<td>Started on:</td><td>Sat Mar 09 20:26:16 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>3 seconds (3216 ms)</td>
+<tr><td>Total time:</td><td>4 seconds (4246 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,10 +76,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.Test1.setUp()'><b>setUp</b><br>Test class: tests.Test1</td>
-<td><div><pre>java.lang.NoSuchMethodError: &apos;void org.openqa.selenium.support.PageFactory.initElements(org.openqa.selenium.SearchContext, java.lang.Object)&apos;
-	at common.pages.BasePage.&lt;init&gt;(BasePage.java:30)
-	at tests.Test1.setUp(Test1.java:21)
+<td title='tests.TestOpenBrowser.setUp()'><b>setUp</b><br>Test class: tests.TestOpenBrowser</td>
+<td><div><pre>io.github.bonigarcia.wdm.config.WebDriverManagerException: javax.net.ssl.SSLException: Tag mismatch!
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1414)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.fallback(WebDriverManager.java:1430)
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1408)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:426)
+	at tests.TestOpenBrowser.setUp(TestOpenBrowser.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -112,10 +117,48 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace888655833", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace888655833'><pre>java.lang.NoSuchMethodError: &apos;void org.openqa.selenium.support.PageFactory.initElements(org.openqa.selenium.SearchContext, java.lang.Object)&apos;
-	at common.pages.BasePage.&lt;init&gt;(BasePage.java:30)
-	at tests.Test1.setUp(Test1.java:21)
+Caused by: javax.net.ssl.SSLException: Tag mismatch!
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:133)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:123)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1513)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1484)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at org.apache.hc.core5.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:195)
+	at org.apache.hc.core5.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:173)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1487)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1107)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1460)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1085)
+	at org.apache.commons.io.FileUtils.copyToFile(FileUtils.java:1026)
+	at org.apache.commons.io.FileUtils.copyInputStreamToFile(FileUtils.java:934)
+	at io.github.bonigarcia.wdm.online.Downloader.downloadAndExtract(Downloader.java:140)
+	at io.github.bonigarcia.wdm.online.Downloader.download(Downloader.java:92)
+	at io.github.bonigarcia.wdm.WebDriverManager.download(WebDriverManager.java:1272)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1183)
+	... 37 more
+Caused by: javax.crypto.AEADBadTagException: Tag mismatch!
+	at java.base/com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt.doFinal(GaloisCounterMode.java:1493)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineDoFinal(GaloisCounterMode.java:447)
+	at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2500)
+	at java.base/sun.security.ssl.SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher.decrypt(SSLCipher.java:1933)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decodeInputRecord(SSLSocketInputRecord.java:264)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:181)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+	... 54 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1646464088", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1646464088'><pre>io.github.bonigarcia.wdm.config.WebDriverManagerException: javax.net.ssl.SSLException: Tag mismatch!
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1414)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.fallback(WebDriverManager.java:1430)
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1408)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:426)
+	at tests.TestOpenBrowser.setUp(TestOpenBrowser.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -148,9 +191,42 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: javax.net.ssl.SSLException: Tag mismatch!
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:133)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:123)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1513)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1484)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at org.apache.hc.core5.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:195)
+	at org.apache.hc.core5.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:173)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1487)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1107)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1460)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1085)
+	at org.apache.commons.io.FileUtils.copyToFile(FileUtils.java:1026)
+	at org.apache.commons.io.FileUtils.copyInputStreamToFile(FileUtils.java:934)
+	at io.github.bonigarcia.wdm.online.Downloader.downloadAndExtract(Downloader.java:140)
+	at io.github.bonigarcia.wdm.online.Downloader.download(Downloader.java:92)
+	at io.github.bonigarcia.wdm.WebDriverManager.download(WebDriverManager.java:1272)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1183)
+	... 37 more
+Caused by: javax.crypto.AEADBadTagException: Tag mismatch!
+	at java.base/com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt.doFinal(GaloisCounterMode.java:1493)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineDoFinal(GaloisCounterMode.java:447)
+	at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2500)
+	at java.base/sun.security.ssl.SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher.decrypt(SSLCipher.java:1933)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decodeInputRecord(SSLSocketInputRecord.java:264)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:181)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+	... 54 more
 </pre></div></td>
-<td>3</td>
-<td>tests.Test1@1165b38</td></tr>
+<td>4</td>
+<td>tests.TestOpenBrowser@5542c4ed</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
@@ -161,10 +237,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.Test1.tearDown()'><b>tearDown</b><br>Test class: tests.Test1</td>
+<td title='tests.TestOpenBrowser.tearDown()'><b>tearDown</b><br>Test class: tests.TestOpenBrowser</td>
 <td></td>
 <td>0</td>
-<td>tests.Test1@1165b38</td></tr>
+<td>tests.TestOpenBrowser@5542c4ed</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -175,10 +251,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.Test1.testLogin()'><b>testLogin</b><br>Test class: tests.Test1</td>
-<td><div><pre>java.lang.NoSuchMethodError: &apos;void org.openqa.selenium.support.PageFactory.initElements(org.openqa.selenium.SearchContext, java.lang.Object)&apos;
-	at common.pages.BasePage.&lt;init&gt;(BasePage.java:30)
-	at tests.Test1.setUp(Test1.java:21)
+<td title='tests.TestOpenBrowser.googleLogoTest()'><b>googleLogoTest</b><br>Test class: tests.TestOpenBrowser</td>
+<td><div><pre>io.github.bonigarcia.wdm.config.WebDriverManagerException: javax.net.ssl.SSLException: Tag mismatch!
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1414)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.fallback(WebDriverManager.java:1430)
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1408)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:426)
+	at tests.TestOpenBrowser.setUp(TestOpenBrowser.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -211,10 +292,48 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace99132505", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace99132505'><pre>java.lang.NoSuchMethodError: &apos;void org.openqa.selenium.support.PageFactory.initElements(org.openqa.selenium.SearchContext, java.lang.Object)&apos;
-	at common.pages.BasePage.&lt;init&gt;(BasePage.java:30)
-	at tests.Test1.setUp(Test1.java:21)
+Caused by: javax.net.ssl.SSLException: Tag mismatch!
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:133)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:123)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1513)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1484)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at org.apache.hc.core5.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:195)
+	at org.apache.hc.core5.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:173)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1487)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1107)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1460)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1085)
+	at org.apache.commons.io.FileUtils.copyToFile(FileUtils.java:1026)
+	at org.apache.commons.io.FileUtils.copyInputStreamToFile(FileUtils.java:934)
+	at io.github.bonigarcia.wdm.online.Downloader.downloadAndExtract(Downloader.java:140)
+	at io.github.bonigarcia.wdm.online.Downloader.download(Downloader.java:92)
+	at io.github.bonigarcia.wdm.WebDriverManager.download(WebDriverManager.java:1272)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1183)
+	... 37 more
+Caused by: javax.crypto.AEADBadTagException: Tag mismatch!
+	at java.base/com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt.doFinal(GaloisCounterMode.java:1493)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineDoFinal(GaloisCounterMode.java:447)
+	at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2500)
+	at java.base/sun.security.ssl.SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher.decrypt(SSLCipher.java:1933)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decodeInputRecord(SSLSocketInputRecord.java:264)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:181)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+	... 54 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace577245010", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace577245010'><pre>io.github.bonigarcia.wdm.config.WebDriverManagerException: javax.net.ssl.SSLException: Tag mismatch!
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1414)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.fallback(WebDriverManager.java:1430)
+	at io.github.bonigarcia.wdm.WebDriverManager.handleException(WebDriverManager.java:1408)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1189)
+	at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:426)
+	at tests.TestOpenBrowser.setUp(TestOpenBrowser.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -247,9 +366,42 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: javax.net.ssl.SSLException: Tag mismatch!
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:133)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:123)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1513)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1484)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at org.apache.hc.core5.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:195)
+	at org.apache.hc.core5.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:173)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.hc.core5.http.io.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1487)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1107)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1460)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1085)
+	at org.apache.commons.io.FileUtils.copyToFile(FileUtils.java:1026)
+	at org.apache.commons.io.FileUtils.copyInputStreamToFile(FileUtils.java:934)
+	at io.github.bonigarcia.wdm.online.Downloader.downloadAndExtract(Downloader.java:140)
+	at io.github.bonigarcia.wdm.online.Downloader.download(Downloader.java:92)
+	at io.github.bonigarcia.wdm.WebDriverManager.download(WebDriverManager.java:1272)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:1183)
+	... 37 more
+Caused by: javax.crypto.AEADBadTagException: Tag mismatch!
+	at java.base/com.sun.crypto.provider.GaloisCounterMode$GCMDecrypt.doFinal(GaloisCounterMode.java:1493)
+	at java.base/com.sun.crypto.provider.GaloisCounterMode.engineDoFinal(GaloisCounterMode.java:447)
+	at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2500)
+	at java.base/sun.security.ssl.SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher.decrypt(SSLCipher.java:1933)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decodeInputRecord(SSLSocketInputRecord.java:264)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:181)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+	... 54 more
 </pre></div></td>
 <td>0</td>
-<td>tests.Test1@1165b38</td></tr>
+<td>tests.TestOpenBrowser@5542c4ed</td></tr>
 </table><p>
 </body>
 </html>

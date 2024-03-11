@@ -1,10 +1,14 @@
 package employeemanagementtest.common.pages;
 
+import static org.testng.Assert.fail;
+
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,10 +17,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class TestCaseTwo {
-	//
 	private WebDriver driver;
 	@FindBy(how = How.XPATH, using = "//input[@placeholder='Type for hints...']")
 	private WebElement employeeName;
@@ -36,6 +38,8 @@ public class TestCaseTwo {
 	private WebElement supervisorName;
 	@FindBy(how=How.XPATH,using="(//div[@class='oxd-select-text-input' and @data-v-67d2aedf=''])[4]")
 	private WebElement subUnitName;
+	 @FindBy(how=How.XPATH,using="(//div[@class='oxd-select-text-input' and @data-v-67d2aedf=''])[3]")
+	 private List<WebElement> selectElements;
 	public static void loginStep(Loginpage loginPage) throws InterruptedException
 	{
 		loginPage.setUsername("Admin");
@@ -109,10 +113,13 @@ public class TestCaseTwo {
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(supervisorName));
+	    supervisorName.clear();
 	    supervisorName.sendKeys(name);
 	    Actions actions=new Actions(driver);
+	    Thread.sleep(3000);
 	    actions.sendKeys(Keys.ARROW_DOWN).perform();
-		actions.sendKeys(Keys.ENTER).perform();    
+	    
+		actions.sendKeys(Keys.ENTER).perform(); 
 	}
 	
 	
@@ -127,33 +134,52 @@ public class TestCaseTwo {
 	    jobTitle.click();
 	    Actions actions = new Actions(driver);
 	    if ( jobTitle.isDisplayed() &&  jobTitle.isEnabled()) {
+	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	Thread.sleep(500);
 	    	while(!jobTitle.getText().equals(string1)) {
+	    		String initialText=jobTitle.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    		String finalText=jobTitle.getText();
+	    		if (initialText.equals(finalText)) fail("No such job title");
 	    	}
 	    	actions.sendKeys(Keys.ENTER).perform();
 	    }
 		
 	}
+	
+
+
+
 	public void setIncludeCategory(String string) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	    wait.until(ExpectedConditions.visibilityOf(includeCategory));
 	    includeCategory.click();
 	    Actions actions = new Actions(driver);
 	    if (  includeCategory.isDisplayed() &&   includeCategory.isEnabled()) {
+	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	Thread.sleep(500);
 	    	while(!includeCategory.getText().equals(string)) {
+	    		String initialText=includeCategory.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    		String finalText=includeCategory.getText();
+	    		if(initialText.equals(finalText)) fail("no such category");
 	    	}
 	    	actions.sendKeys(Keys.ENTER).perform();
 	    }		
 	}
-	public void setEmployeeStatus(String string) {
+	public void setEmployeeStatus(String string) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(employeeStatus));
 	    employeeStatus.click();
 	    Actions actions = new Actions(driver);
 	    if ( employeeStatus.isDisplayed() &&  employeeStatus.isEnabled()) {
+	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	Thread.sleep(500);
 	    	while(! employeeStatus.getText().equals(string)) {
+	    		String initialString=employeeStatus.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    		String finalString=employeeStatus.getText();
+	    		if(initialString.equals(finalString)) fail("no such employee status");
 	    	}
 	    	actions.sendKeys(Keys.ENTER).perform();
 	    }
@@ -165,13 +191,47 @@ public class TestCaseTwo {
 	    subUnitName.click();
 	    Actions actions = new Actions(driver);
 	    if ( subUnitName.isDisplayed() &&  subUnitName.isEnabled()) {
+	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    	Thread.sleep(500);
 	    	while(! subUnitName.getText().equals(string)) {
+	    		String initialText= subUnitName.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
+	    		String finalText=subUnitName.getText();
+	    		if(initialText.equals(finalText)) fail("no such sub unit ");
 	    	}
 	    	actions.sendKeys(Keys.ENTER).perform();
-	    }
-		
+	    }		
 	}
-	 
+	public void setEmployeeStatus1(String status) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    wait.until(ExpectedConditions.visibilityOf(employeeStatus));
+	    employeeStatus.click();
+	    WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), '" + status + "')]")));
+	    element.click();
+	}
+	public void setIncludeCategory1(String category)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    wait.until(ExpectedConditions.visibilityOf(includeCategory));
+	    includeCategory.click();
+	    WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), '" +category+ "')]")));
+	    element.click();		
+	}
+	public void setJobTitle1(String title)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOf(jobTitle));
+	    jobTitle.click();
+	    WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), '" +title+ "')]")));
+	    element.click();
+	}
+	public void setSubUnit1(String unit)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOf(subUnitName));
+	    subUnitName.click();
+	    WebElement element=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), '" +unit+ "')]")));
+	    element.click();
+	}
 
 }

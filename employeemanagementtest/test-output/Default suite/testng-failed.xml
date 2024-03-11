@@ -6,7 +6,7 @@
       <class name="employeemanagementtest.TestCase2">
         <methods>
           <include name="tearDown"/>
-          <include name="includeCategory"/>
+          <include name="testAllCategory"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- employeemanagementtest.TestCase2 -->
