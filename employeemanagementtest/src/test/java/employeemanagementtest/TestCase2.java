@@ -71,7 +71,7 @@ public class TestCase2 {
 		TestCaseTwo.loginStep(loginPage);
 		TestCaseTwo testCaseTwo = new TestCaseTwo(driver);
 		//testCaseTwo.employeeSatusSelect();		
-         testCaseTwo.setEmployeeStatus("Full-Time Probation1233");
+         testCaseTwo.setEmployeeStatus1("Full-Time Probation");
          testCaseTwo.clickButton();
          testCaseTwo.scroll();
 	}
@@ -157,8 +157,8 @@ public class TestCase2 {
         testCaseTwo.setEmployeeId("0449");
         testCaseTwo.setEmployeeStatus1("Full-Time Probation");
         testCaseTwo.setIncludeCategory1("Current and Past Employees");
-        testCaseTwo.superVisor("Brandy");
-		testCaseTwo.setJobTitle1("Content Specialist");
+        testCaseTwo.superVisor("Odis Adalwin");
+		testCaseTwo.setJobTitle1("Database Administrator");
 		testCaseTwo.setSubUnit1("Engineering");
 		testCaseTwo.clickButton();
 		   

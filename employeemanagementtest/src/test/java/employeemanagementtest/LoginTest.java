@@ -30,7 +30,7 @@ public class LoginTest {
     	loginPage.setPassword("admin123");
         loginPage.clickLoginButton();       
         boolean res=loginPage.isLoginSuccessful();
-        System.out.print(res);
+        //System.out.print(res);
         loginPage.clickPimButton() ;
     }
    @AfterMethod

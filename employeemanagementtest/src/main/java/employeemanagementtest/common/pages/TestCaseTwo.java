@@ -29,8 +29,7 @@ public class TestCaseTwo {
 	@FindBy(how=How.XPATH,using="(//div[@class='oxd-select-text-input' and @data-v-67d2aedf=''])[3]")
 	private WebElement jobTitle;
 	@FindBy(how=How.XPATH,using="//div[@class='oxd-select-text-input' and @data-v-67d2aedf='']")
-	private WebElement employeeStatus;
-	
+	private WebElement employeeStatus;	
 	//div[@class='oxd-select-text-input' and text()='Current Employees Only']
 	@FindBy(how=How.XPATH,using="//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div/div[1]")
 	private WebElement includeCategory;
@@ -96,10 +95,7 @@ public class TestCaseTwo {
 	    wait.until(ExpectedConditions.visibilityOf(employeeStatus));
 	    employeeStatus.click();
 	}
-	
-	
-	
-	
+
 	public void clickIncludeCategory()
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -202,7 +198,7 @@ public class TestCaseTwo {
 	    	actions.sendKeys(Keys.ENTER).perform();
 	    }		
 	}
-	public void setEmployeeStatus1(String status) throws InterruptedException {
+	public void setEmployeeStatus1(String status) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	    wait.until(ExpectedConditions.visibilityOf(employeeStatus));
 	    employeeStatus.click();
