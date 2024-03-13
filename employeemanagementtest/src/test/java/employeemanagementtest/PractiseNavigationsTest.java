@@ -28,5 +28,5 @@ public class PractiseNavigationsTest extends PractiseNavigate {
     	File src=((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
     	FileUtils.copyFile(src,new File("C:\\Users\\Rakshita\\Documents\\google.png"));
     }
-
+  
 }

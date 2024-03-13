@@ -156,7 +156,7 @@ public class TestCase2 {
 		testCaseTwo.setUsername("sam");
         testCaseTwo.setEmployeeId("0449");
         testCaseTwo.setEmployeeStatus1("Full-Time Probation");
-        testCaseTwo.setIncludeCategory1("Current and Past Employees");
+        testCaseTwo.setIncludeCategory1("Current Employees Only");
         testCaseTwo.superVisor("Odis Adalwin");
 		testCaseTwo.setJobTitle1("Database Administrator");
 		testCaseTwo.setSubUnit1("Engineering");
