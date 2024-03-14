@@ -60,14 +60,13 @@ public class TestCaseTwo {
         wait.until(ExpectedConditions.visibilityOf(employeeName));
        employeeName.sendKeys(username);
    }
-	
-	
-	
+		
 	public void clickButton()
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(button));
 	    button.click();
+	    
 	}
 	
 	public void setEmployeeId(String id)

@@ -57,7 +57,6 @@ public class Loginpage {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}		
- 
     }
    
 
@@ -93,6 +92,9 @@ public class Loginpage {
     public boolean isLoginSuccessful() {
         return driver.getCurrentUrl().equals("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
     }
-    
+    public boolean isAdminPage()
+    {
+    	return driver.getCurrentUrl().equals("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers");
+    }
 
 }

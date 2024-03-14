@@ -6,6 +6,8 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,6 +16,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class TestCaseThree {
 	private WebDriver driver;
@@ -39,20 +42,30 @@ public class TestCaseThree {
 	{
 		loginPage.setUsername("Admin");
      	loginPage.setPassword("admin123");
-        loginPage.clickLoginButton();
-        
+        loginPage.clickLoginButton();  
         boolean res=loginPage.isLoginSuccessful();
-        System.out.print(res);
+        if(res) {
+	    	System.out.println("Successfully Logged into Orange HRM");
+	    }else {
+	    	System.out.println("Failure ! couldn't login");
+	    }
 	}
 	public TestCaseThree(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-	public void clickAdminButton()
+	public void clickAdminButton(Loginpage loginPage)
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(admin));
 	    admin.click();
+	    boolean res=loginPage.isAdminPage();
+	    if(res) {
+	    	System.out.println("Successfully Logged into Admin Page");
+	    }else {
+	    	System.out.println("Failure ! Redirected to some other page ");
+	    }
+	    
 	}
 	public void clickQualification() throws InterruptedException
 	{
@@ -78,19 +91,35 @@ public class TestCaseThree {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(inputLanguage));
 	    inputLanguage.sendKeys(language);
+	    Thread.sleep(3000);
+	    try {
+	    	WebElement alreadyexists=driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']"));
+	    	wait.until(ExpectedConditions.visibilityOf(alreadyexists));
+	    	if(alreadyexists.getText().contains("Already exists"))
+	    	{
+	    		Assert.fail("Language already exists");
+	    	}
+	    }catch(TimeoutException e) {
+		       
+		    }
+	    catch(NoSuchElementException e) {
+	    	
+	    }
+
+	  
 	}
 	public void saveLanguageButton() throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(saveLanguage));
 	    saveLanguage.click();
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    String message = (String) js.executeScript("return window.alertMessage;");
-	    System.out.println("Popup message: " + message);
-
+	    WebElement popUp = driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
+	    wait.until(ExpectedConditions.visibilityOf(popUp));
+	    String message = popUp.getText();
+	    System.out.println("Popup message: " + message);   
         Thread.sleep(3000);
+	    }
 
-	}
 	public void deleteLanguage(String language) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -99,9 +128,12 @@ public class TestCaseThree {
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkbox);
 		wait.until(ExpectedConditions.visibilityOf(deleteSelected));
 		deleteSelected.click();
-	    Thread.sleep(2000);
 	    WebElement deleteConfirm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[contains(@class, 'oxd-button--label-danger')])[2]")));
 	    deleteConfirm.click();
+	    WebElement popUp=driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
+	    wait.until(ExpectedConditions.visibilityOf(popUp));
+	    String message=popUp.getText();
+	    System.out.println("Popup message: " + message);
 	    Thread.sleep(3000);
 	}
 	public void editLanguage(String language,String newString) throws InterruptedException
@@ -115,10 +147,13 @@ public class TestCaseThree {
 	    wait.until(ExpectedConditions.visibilityOf(editLanguage));
 	    Actions action=new Actions(driver);
 	    action.moveToElement(editLanguage).click().keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).sendKeys(newString).perform();
-	    Thread.sleep(2000);
+	    Thread.sleep(1000);
 	    wait.until(ExpectedConditions.visibilityOf(saveEditButton));
 	    saveEditButton.click();
-	    
+	    WebElement popUp=driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
+	    wait.until(ExpectedConditions.visibilityOf(popUp));
+	    String message=popUp.getText();
+	    System.out.println("Popup message: " + message);    
 	    Thread.sleep(3000);
 	}
 }

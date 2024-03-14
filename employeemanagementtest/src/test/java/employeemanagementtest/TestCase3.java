@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import employeemanagementtest.common.pages.Loginpage;
 import employeemanagementtest.common.pages.TestCaseThree;
-import employeemanagementtest.common.pages.TestCaseTwo;
 import employeemanagementtest.common.utils.Browsersconfig;
 
 public class TestCase3 {
@@ -31,11 +30,11 @@ public class TestCase3 {
 	{
 		TestCaseThree.loginStep(loginPage);
 		TestCaseThree testCaseTwo = new TestCaseThree(driver);
-		testCaseTwo.clickAdminButton();
+		testCaseTwo.clickAdminButton(loginPage);
 		testCaseTwo.clickQualification();
 		testCaseTwo.clickLanguages();
 		testCaseTwo.addButton();
-		testCaseTwo.inputLanguageField("UttarKannadaaa23");
+		testCaseTwo.inputLanguageField("Kannada");
 		testCaseTwo.saveLanguageButton();
 	}
 	
@@ -44,7 +43,7 @@ public class TestCase3 {
 	{
 		TestCaseThree.loginStep(loginPage);
 		TestCaseThree testCaseTwo = new TestCaseThree(driver);
-		testCaseTwo.clickAdminButton();
+		testCaseTwo.clickAdminButton(loginPage);
 		testCaseTwo.clickQualification();
 		testCaseTwo.clickLanguages();
 		testCaseTwo.editLanguage("Kannada","Kannada1");
@@ -55,7 +54,7 @@ public class TestCase3 {
 	{
 		TestCaseThree.loginStep(loginPage);
 		TestCaseThree testCaseTwo = new TestCaseThree(driver);
-		testCaseTwo.clickAdminButton();
+		testCaseTwo.clickAdminButton(loginPage);
 		testCaseTwo.clickQualification();
 		testCaseTwo.clickLanguages();
 		testCaseTwo.deleteLanguage("Kannada");
