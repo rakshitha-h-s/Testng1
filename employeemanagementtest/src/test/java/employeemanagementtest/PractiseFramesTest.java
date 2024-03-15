@@ -26,6 +26,12 @@ public class PractiseFramesTest {
     {
     	practisepage.setUsernameAndPassword();
     }
+    @Test
+    public void highLight() throws InterruptedException
+    {
+    	practisepage.getTitle();
+    	practisepage.highLightElement();
+    }
     @AfterMethod
     public void tearDown() {	
 		driver.quit();

@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-14T17:01:38 IST" name="Default suite" finished-at="2024-03-14T17:02:08 IST" duration-ms="29548">
+  <suite started-at="2024-03-15T12:32:23 IST" name="Default suite" finished-at="2024-03-15T12:33:15 IST" duration-ms="51542">
     <groups>
     </groups>
-    <test started-at="2024-03-14T17:01:38 IST" name="Default test" finished-at="2024-03-14T17:02:08 IST" duration-ms="29548">
-      <class name="employeemanagementtest.TestCase3">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:employeemanagementtest.TestCase3@18078bef]" started-at="2024-03-14T17:01:38 IST" name="setUp" finished-at="2024-03-14T17:01:49 IST" duration-ms="10206" status="PASS">
+    <test started-at="2024-03-15T12:32:23 IST" name="Default test" finished-at="2024-03-15T12:33:15 IST" duration-ms="51542">
+      <class name="employeemanagementtest.PractiseFramesTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:employeemanagementtest.PractiseFramesTest@689604d9]" started-at="2024-03-15T12:32:23 IST" name="setUp" finished-at="2024-03-15T12:32:32 IST" duration-ms="9310" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testAddLanguage()[pri:0, instance:employeemanagementtest.TestCase3@18078bef]" started-at="2024-03-14T17:01:49 IST" name="testAddLanguage" finished-at="2024-03-14T17:02:07 IST" duration-ms="17855" status="PASS">
+        <test-method signature="highLight()[pri:0, instance:employeemanagementtest.PractiseFramesTest@689604d9]" started-at="2024-03-15T12:32:32 IST" name="highLight" finished-at="2024-03-15T12:33:13 IST" duration-ms="40932" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddLanguage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:employeemanagementtest.TestCase3@18078bef]" started-at="2024-03-14T17:02:07 IST" name="tearDown" finished-at="2024-03-14T17:02:08 IST" duration-ms="1423" status="PASS">
+        </test-method> <!-- highLight -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:employeemanagementtest.PractiseFramesTest@689604d9]" started-at="2024-03-15T12:33:13 IST" name="tearDown" finished-at="2024-03-15T12:33:15 IST" duration-ms="1257" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- employeemanagementtest.TestCase3 -->
+      </class> <!-- employeemanagementtest.PractiseFramesTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

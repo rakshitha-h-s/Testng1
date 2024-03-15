@@ -123,9 +123,14 @@ public class TestCaseThree {
 	public void deleteLanguage(String language) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		try {
 		String xpath = String.format("//div[contains(text(),'%s')]/ancestor::div[contains(@class,'oxd-table-row')]/descendant::input[@type='checkbox']", language);
 		WebElement checkbox = driver.findElement(By.xpath(xpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkbox);
+		}
+        catch(NoSuchElementException e) {
+	    	Assert.fail("Language doesnot exist");
+	    }
 		wait.until(ExpectedConditions.visibilityOf(deleteSelected));
 		deleteSelected.click();
 	    WebElement deleteConfirm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[contains(@class, 'oxd-button--label-danger')])[2]")));
@@ -138,11 +143,16 @@ public class TestCaseThree {
 	}
 	public void editLanguage(String language,String newString) throws InterruptedException
 	{
-		String xpath = String.format("//div[contains(@class, 'oxd-table-row') and .//div[contains(text(), '%s')]]//button[contains(@class, 'oxd-icon-button')][2]", language);
-		WebElement edit = driver.findElement(By.xpath(xpath));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		try {
+		String xpath = String.format("//div[contains(@class, 'oxd-table-row') and .//div[contains(text(), '%s')]]//button[contains(@class, 'oxd-icon-button')][2]", language);
+		WebElement edit = driver.findElement(By.xpath(xpath));	
 		wait.until(ExpectedConditions.visibilityOf(edit));
 		edit.click();
+		}
+		catch(NoSuchElementException e) {
+			Assert.fail("Language doesnot exist");
+		}	
         Thread.sleep(1000);
 	    wait.until(ExpectedConditions.visibilityOf(editLanguage));
 	    Actions action=new Actions(driver);

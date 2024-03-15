@@ -57,7 +57,7 @@ public class TestCase3 {
 		testCaseTwo.clickAdminButton(loginPage);
 		testCaseTwo.clickQualification();
 		testCaseTwo.clickLanguages();
-		testCaseTwo.deleteLanguage("Kannada");
+		testCaseTwo.deleteLanguage("Tamil");
 	}
 
 }
