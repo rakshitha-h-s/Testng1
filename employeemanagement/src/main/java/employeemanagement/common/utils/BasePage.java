@@ -23,7 +23,6 @@ public class BasePage {
 	private static PimPage pim;
 	private static AdminPage admin;
 	public static WebDriver createDriver(String browser){
-		WebDriver driver;
 		 switch (browser.toLowerCase()) {
 	        case "chrome":
 	            WebDriverManager.chromedriver().setup();
@@ -59,7 +58,7 @@ public class BasePage {
 		pim=new PimPage(driver);
 		admin=new AdminPage(driver);
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.get(properties.getProperty("url"));
 	}
 	@AfterClass
 	public static void closeBrowser()

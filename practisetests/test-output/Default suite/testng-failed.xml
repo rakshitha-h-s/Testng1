@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="practiseTests.PractiseDropDown">
+      <class name="practiseTests.PractiseScreenshotTest">
         <methods>
+          <include name="takeImage"/>
           <include name="setUp"/>
-          <include name="selectDropDown"/>
-          <include name="tearDown"/>
+          <include name="driverQuit"/>
         </methods>
-      </class> <!-- practiseTests.PractiseDropDown -->
+      </class> <!-- practiseTests.PractiseScreenshotTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

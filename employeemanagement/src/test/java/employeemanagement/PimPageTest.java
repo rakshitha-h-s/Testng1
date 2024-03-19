@@ -155,7 +155,7 @@ public class PimPageTest extends BasePage {
 		pim.setEmployeeStatus1("Full-Time Probation");
 		pim.setIncludeCategory1("Current Employees Only");
 		pim.superVisor("Odis Adalwin");
-		pim.setJobTitle1("Database Administrator");
+		pim.setJobTitle("Database Administrator");
 		pim.setSubUnit1("Engineering");
 		pim.clickButton();
 		   

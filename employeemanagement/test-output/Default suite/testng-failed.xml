@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="employeemanagement.AdminPageTest">
+      <class name="employeemanagement.PimPageTest">
         <methods>
           <include name="closeBrowser"/>
-          <include name="testAddLanguage"/>
+          <include name="testAllCategory"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- employeemanagement.AdminPageTest -->
+      </class> <!-- employeemanagement.PimPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

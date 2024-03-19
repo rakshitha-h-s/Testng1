@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 private  WebDriver driver;
-    
+private WebDriverWait wait;
     @FindBy(how = How.CSS, using = "[name='username']")
     private WebElement usernameElement;
 
@@ -28,28 +28,25 @@ private  WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
 		this.driver=driver;
+		this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver,this);
 	}
-	 public void setUsername(String username) {
-	    	WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+	 public void setUsername(String username) {	    	
 	        wait.until(ExpectedConditions.visibilityOf(usernameElement));
 	        usernameElement.sendKeys(username);
 	    }
 
 	    public void setPassword(String password) {
-	    	WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 	         wait.until(ExpectedConditions.visibilityOf(passwordElement));
 	        passwordElement.sendKeys(password);
 	    }
 
 	    public void clickLoginButton() {
-	    	WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 	        wait.until(ExpectedConditions.visibilityOf(loginButton));
 	        loginButton.click();
 	    }
 
 	    public void clickPimButton() {
-	    	 WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 	         wait.until(ExpectedConditions.visibilityOf(pimButton));
 	        pimButton.click();
 	    }

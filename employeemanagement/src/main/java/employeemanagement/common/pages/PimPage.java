@@ -110,8 +110,7 @@ public class PimPage {
 	    supervisorName.sendKeys(name);
 	    Actions actions=new Actions(driver);
 	    Thread.sleep(3000);
-	    actions.sendKeys(Keys.ARROW_DOWN).perform();
-	    
+	    actions.sendKeys(Keys.ARROW_DOWN).perform();    
 		actions.sendKeys(Keys.ENTER).perform(); 
 	}
 	
@@ -128,7 +127,6 @@ public class PimPage {
 	    Actions actions = new Actions(driver);
 	    if ( jobTitle.isDisplayed() &&  jobTitle.isEnabled()) {
 	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
-	    	Thread.sleep(500);
 	    	while(!jobTitle.getText().equals(string1)) {
 	    		String initialText=jobTitle.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
@@ -147,7 +145,6 @@ public class PimPage {
 	    Actions actions = new Actions(driver);
 	    if (  includeCategory.isDisplayed() &&   includeCategory.isEnabled()) {
 	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
-	    	Thread.sleep(500);
 	    	while(!includeCategory.getText().equals(string)) {
 	    		String initialText=includeCategory.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
@@ -164,7 +161,6 @@ public class PimPage {
 	    Actions actions = new Actions(driver);
 	    if ( employeeStatus.isDisplayed() &&  employeeStatus.isEnabled()) {
 	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
-	    	Thread.sleep(500);
 	    	while(! employeeStatus.getText().equals(string)) {
 	    		String initialString=employeeStatus.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
@@ -182,7 +178,6 @@ public class PimPage {
 	    Actions actions = new Actions(driver);
 	    if ( subUnitName.isDisplayed() &&  subUnitName.isEnabled()) {
 	    	actions.sendKeys(Keys.ARROW_DOWN).perform();
-	    	Thread.sleep(500);
 	    	while(! subUnitName.getText().equals(string)) {
 	    		String initialText= subUnitName.getText();
 	    		actions.sendKeys(Keys.ARROW_DOWN).perform();
