@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-19T18:06:45 IST" name="Default suite" finished-at="2024-03-19T18:06:59 IST" duration-ms="14345">
+  <suite started-at="2024-03-20T12:59:19 IST" name="Default suite" finished-at="2024-03-20T12:59:45 IST" duration-ms="25533">
     <groups>
     </groups>
-    <test started-at="2024-03-19T18:06:45 IST" name="Default test" finished-at="2024-03-19T18:06:59 IST" duration-ms="14345">
-      <class name="employeemanagement.LoginTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:employeemanagement.LoginTest@6b2ea799]" started-at="2024-03-19T18:06:45 IST" name="setUp" finished-at="2024-03-19T18:06:54 IST" duration-ms="9266" status="PASS">
+    <test started-at="2024-03-20T12:59:19 IST" name="Default test" finished-at="2024-03-20T12:59:45 IST" duration-ms="25533">
+      <class name="employeemanagement.AdminPageTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:employeemanagement.AdminPageTest@2b71e916]" started-at="2024-03-20T12:59:19 IST" name="setUp" finished-at="2024-03-20T12:59:25 IST" duration-ms="5954" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testLogin()[pri:0, instance:employeemanagement.LoginTest@6b2ea799]" started-at="2024-03-19T18:06:54 IST" name="testLogin" finished-at="2024-03-19T18:06:58 IST" duration-ms="3779" status="PASS">
+        <test-method signature="testAddLanguage()[pri:0, instance:employeemanagement.AdminPageTest@2b71e916]" started-at="2024-03-20T12:59:25 IST" name="testAddLanguage" finished-at="2024-03-20T12:59:43 IST" duration-ms="18095" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testLogin -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:employeemanagement.LoginTest@6b2ea799]" started-at="2024-03-19T18:06:58 IST" name="closeBrowser" finished-at="2024-03-19T18:06:59 IST" duration-ms="1258" status="PASS">
+        </test-method> <!-- testAddLanguage -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:employeemanagement.AdminPageTest@2b71e916]" started-at="2024-03-20T12:59:43 IST" name="closeBrowser" finished-at="2024-03-20T12:59:45 IST" duration-ms="1414" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- employeemanagement.LoginTest -->
+      </class> <!-- employeemanagement.AdminPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

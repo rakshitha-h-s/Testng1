@@ -10,7 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
+import employeemanagement.common.utils.BasePage;
+
+public class LoginPage extends BasePage{
 private  WebDriver driver;
 private WebDriverWait wait;
     @FindBy(how = How.CSS, using = "[name='username']")

@@ -17,8 +17,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import employeemanagement.common.utils.BasePage;
 
-public class PimPage {
+
+public class PimPage extends BasePage{
 	private WebDriver driver;
 	@FindBy(how = How.XPATH, using = "//input[@placeholder='Type for hints...']")
 	private WebElement employeeName;

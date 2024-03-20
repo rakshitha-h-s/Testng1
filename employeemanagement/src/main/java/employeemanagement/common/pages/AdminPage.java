@@ -17,8 +17,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import employeemanagement.common.utils.BasePage;
 
-public class AdminPage {
+
+public class AdminPage extends BasePage {
 	private WebDriver driver;
 	@FindBy(how=How.XPATH,using="//a[@href='/web/index.php/admin/viewAdminModule']")
 	private WebElement admin;

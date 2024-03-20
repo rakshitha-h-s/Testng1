@@ -1,66 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-19T12:38:00 IST" name="Default suite" finished-at="2024-03-19T12:39:49 IST" duration-ms="108598">
+  <suite started-at="2024-03-20T12:35:38 IST" name="Default suite" finished-at="2024-03-20T12:35:53 IST" duration-ms="15075">
     <groups>
     </groups>
-    <test started-at="2024-03-19T12:38:00 IST" name="Default test" finished-at="2024-03-19T12:39:49 IST" duration-ms="108598">
-      <class name="practiseTests.PractiseScreenshotTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:practiseTests.PractiseScreenshotTest@2362f559]" started-at="2024-03-19T12:38:00 IST" name="setUp" finished-at="2024-03-19T12:38:07 IST" duration-ms="6730" status="PASS">
+    <test started-at="2024-03-20T12:35:38 IST" name="Default test" finished-at="2024-03-20T12:35:53 IST" duration-ms="15075">
+      <class name="practiseTests.CheckBrokenLinkstest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:practiseTests.CheckBrokenLinkstest@1ff4931d]" started-at="2024-03-20T12:35:38 IST" name="setUp" finished-at="2024-03-20T12:35:43 IST" duration-ms="5796" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="takeImage()[pri:0, instance:practiseTests.PractiseScreenshotTest@2362f559]" started-at="2024-03-19T12:38:07 IST" name="takeImage" finished-at="2024-03-19T12:39:47 IST" duration-ms="100457" status="FAIL">
-          <exception class="org.sikuli.script.FindFailed">
-            <message>
-              <![CDATA[/practisetests/Play.PNG: (0x0) in R[0,0 1280x720]@S(0)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[FindFailed: /practisetests/Play.PNG: (0x0) in R[0,0 1280x720]@S(0)
-  Line 2226, in file Region.java
-
-at org.sikuli.script.Region.wait(Region.java:2226)
-at practiseTests.PractiseScreenshotTest.takeImage(PractiseScreenshotTest.java:46)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:819)
-at org.testng.TestRunner.run(TestRunner.java:619)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
-at org.testng.TestNG.runSuites(TestNG.java:1134)
-at org.testng.TestNG.run(TestNG.java:1101)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.sikuli.script.FindFailed -->
+        <test-method signature="checkLinks()[pri:0, instance:practiseTests.CheckBrokenLinkstest@1ff4931d]" started-at="2024-03-20T12:35:43 IST" name="checkLinks" finished-at="2024-03-20T12:35:51 IST" duration-ms="7785" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- takeImage -->
-        <test-method is-config="true" signature="driverQuit()[pri:0, instance:practiseTests.PractiseScreenshotTest@2362f559]" started-at="2024-03-19T12:39:47 IST" name="driverQuit" finished-at="2024-03-19T12:39:49 IST" duration-ms="1352" status="PASS">
+        </test-method> <!-- checkLinks -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:practiseTests.CheckBrokenLinkstest@1ff4931d]" started-at="2024-03-20T12:35:51 IST" name="tearDown" finished-at="2024-03-20T12:35:53 IST" duration-ms="1408" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- driverQuit -->
-      </class> <!-- practiseTests.PractiseScreenshotTest -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- practiseTests.CheckBrokenLinkstest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
