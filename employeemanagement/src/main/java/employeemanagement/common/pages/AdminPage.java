@@ -104,11 +104,8 @@ public class AdminPage extends BasePage {
 	    }catch(TimeoutException e) {
 		       
 		    }
-	    catch(NoSuchElementException e) {
-	    	
+	    catch(NoSuchElementException e) {	
 	    }
-
-	  
 	}
 	public void saveLanguageButton() throws InterruptedException
 	{
@@ -143,6 +140,34 @@ public class AdminPage extends BasePage {
 	    System.out.println("Popup message: " + message);
 	    Thread.sleep(3000);
 	}
+	public void deleteLanguage1(String language)throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		try {
+		String xpath = String.format("//div[contains(text(),'%s')]/ancestor::div[contains(@class,'oxd-table-row')]/descendant::input[@type='checkbox']", language);
+		WebElement checkbox = driver.findElement(By.xpath(xpath));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkbox);
+		wait.until(ExpectedConditions.visibilityOf(deleteSelected));
+		deleteSelected.click();
+	    WebElement deleteConfirm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[contains(@class, 'oxd-button--label-danger')])[2]")));
+	    deleteConfirm.click();
+	    WebElement popUp=driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
+	    wait.until(ExpectedConditions.visibilityOf(popUp));
+	    String message=popUp.getText();
+	    System.out.println("Popup message: " + message);
+	    Thread.sleep(3000);
+		}
+        catch(NoSuchElementException e) {
+        	//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	    wait.until(ExpectedConditions.visibilityOf(addButton));
+    	    addButton.click();
+        	inputLanguageField(language);
+        	saveLanguageButton();	
+            Thread.sleep(3000);
+		    deleteLanguage(language);
+        }
+        }
+
 	public void editLanguage(String language,String newString) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

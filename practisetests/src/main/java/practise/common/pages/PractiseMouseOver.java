@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,8 +16,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import jdk.internal.org.jline.utils.Log;
+
 public class PractiseMouseOver {
 	private WebDriver driver;
+	private static Logger logger=Logger.getLogger(PractiseMouseOver.class.getName());
 	public static String loadProperties() throws IOException {
         Properties properties = new Properties();
     	FileInputStream file = new FileInputStream("src/main/resources/config.properties");
@@ -46,10 +50,12 @@ public class PractiseMouseOver {
     }
     public void selectDate(String dateValue)
     {
+
     	WebElement element=driver.findElement(By.xpath("(//button[@class=\"ui-datepicker-trigger\"])[1]"));
     	WebDriverWait wait=new WebDriverWait(this.driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));
         JavascriptExecutor js=((JavascriptExecutor)driver)  ;  
         js.executeScript("arguments[0].setAttribute('value','"+dateValue+"');",element);
+        Log.info("date selected");
     }
 }

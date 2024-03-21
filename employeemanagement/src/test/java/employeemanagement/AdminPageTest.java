@@ -39,6 +39,7 @@ public class AdminPageTest extends BasePage {
 		admin.editLanguage("Kannada","Kannada1");
 		
 	}
+	//if laguage doesnot exists then fail the test saying language doesnot exists.
 	@Test
 	public void testDeleteLanguage() throws InterruptedException
 	{
@@ -49,5 +50,17 @@ public class AdminPageTest extends BasePage {
 		admin.clickQualification();
 		admin.clickLanguages();
 		admin.deleteLanguage("Tamil");
+	}
+	//if the language doesn't exists then add it and then delete it 
+	@Test
+	public void testDeleteLanguage1() throws InterruptedException
+	{
+		login=getLogin();
+		AdminPage.loginStep(login);
+		admin=getAdmin();
+		admin.clickAdminButton();
+		admin.clickQualification();
+		admin.clickLanguages();
+		admin.deleteLanguage1("Tamil");
 	}
 }
