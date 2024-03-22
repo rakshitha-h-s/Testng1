@@ -17,7 +17,7 @@ public class PimPageTest extends BasePage {
 		login=getLogin(); 
 		PimPage.loginStep(login);
 		pim=getPimPage();
-		pim.setUsername("sanjana");
+		pim.setUsername("Abani");
         pim.clickButton();
         pim.scroll();
         
@@ -39,7 +39,7 @@ public class PimPageTest extends BasePage {
 		PimPage.loginStep(login);
 		pim=getPimPage();
 		pim.jobTitleset();
-		pim.setJobTitle("Automaton Tester");
+		pim.setJobTitle("Account Assistant");
 		pim.clickButton();
 		pim.scroll();
 	}
@@ -48,7 +48,7 @@ public class PimPageTest extends BasePage {
 		login=getLogin(); 
 		PimPage.loginStep(login);
 		pim=getPimPage();
-		pim.setJobTitle("Non-existent Job Title");
+		pim.setJobTitle("Finance Manager");
 		        
 	}
 	//searching employee by their employee status

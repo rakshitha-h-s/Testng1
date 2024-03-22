@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse--1470156290\testng-customsuite.xml</span>
+                    <span>C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse--1946186429\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="employeemanagement.AdminPageTest" class="method navigator-link" hash-for-method="testDeleteLanguage">testDeleteLanguage</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="employeemanagement.AdminPageTest" class="method navigator-link" hash-for-method="testAddLanguage">testAddLanguage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -126,13 +126,13 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testDeleteLanguage">
-                  </a> <!-- testDeleteLanguage -->
-                  <span class="method-name">testDeleteLanguage</span>
-                  <div class="stack-trace">java.lang.AssertionError: Language doesnot exist
+                  <a name="testAddLanguage">
+                  </a> <!-- testAddLanguage -->
+                  <span class="method-name">testAddLanguage</span>
+                  <div class="stack-trace">java.lang.AssertionError: not added! enter valid characters
 	at org.testng.Assert.fail(Assert.java:111)
-	at employeemanagement.common.pages.AdminPage.deleteLanguage(AdminPage.java:131)
-	at employeemanagement.AdminPageTest.testDeleteLanguage(AdminPageTest.java:51)
+	at employeemanagement.common.pages.AdminPage.saveLanguageButton(AdminPage.java:125)
+	at employeemanagement.AdminPageTest.testAddLanguage(AdminPageTest.java:27)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -170,7 +170,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse--1470156290\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Rakshita\AppData\Local\Temp\testng-eclipse--1946186429\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -181,7 +181,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;employeemanagement.AdminPageTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;testDeleteLanguage&quot;/&gt;
+          &lt;include name=&quot;testAddLanguage&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- employeemanagement.AdminPageTest --&gt;
     &lt;/classes&gt;
@@ -225,14 +225,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testDeleteLanguage')
+data.setCell(0, 1, 'testAddLanguage')
 data.setCell(0, 2, 'employeemanagement.AdminPageTest')
-data.setCell(0, 3, 8442);
+data.setCell(0, 3, 14597);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 14 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -253,11 +253,11 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">employeemanagement.AdminPageTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">testAddLanguage</span>
-                <br/>
                 <span class="ignored-method-name">testDeleteLanguage1</span>
                 <br/>
                 <span class="ignored-method-name">testEditLanguage</span>
+                <br/>
+                <span class="ignored-method-name">testDeleteLanguage</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -277,12 +277,12 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">testDeleteLanguage</span>
-                <span class="method-start">7609 ms</span>
+                <span class="method-name">testAddLanguage</span>
+                <span class="method-start">4783 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">16062 ms</span>
+                <span class="method-start">19383 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

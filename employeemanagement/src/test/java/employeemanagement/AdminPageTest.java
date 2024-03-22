@@ -23,7 +23,7 @@ public class AdminPageTest extends BasePage {
 		admin.clickQualification();
 		admin.clickLanguages();
 		admin.addButton();
-		admin.inputLanguageField("Kannada");
+		admin.inputLanguageField(" ");
 		admin.saveLanguageButton();
 	}
 	

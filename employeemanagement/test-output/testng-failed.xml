@@ -6,8 +6,8 @@
       <class name="employeemanagement.AdminPageTest">
         <methods>
           <include name="closeBrowser"/>
+          <include name="testAddLanguage"/>
           <include name="setUp"/>
-          <include name="testDeleteLanguage"/>
         </methods>
       </class> <!-- employeemanagement.AdminPageTest -->
     </classes>

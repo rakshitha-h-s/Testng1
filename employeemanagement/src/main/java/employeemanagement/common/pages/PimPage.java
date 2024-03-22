@@ -8,6 +8,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -16,6 +17,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import employeemanagement.common.utils.BasePage;
 
@@ -61,11 +63,25 @@ public class PimPage extends BasePage{
        employeeName.sendKeys(username);
    }
 		
-	public void clickButton()
+	public void clickButton() throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(button));
 	    button.click();
+	    Thread.sleep(3000);
+	    try {
+	        WebElement popUp = driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
+	        String message = popUp.getText();
+	        if(!message.contains("No Records")) {       	
+	        System.out.println("Search success " + message);
+	        }
+	        else {
+	        	Assert.fail("No employee with given details " + message);
+	        }
+	    } catch (NoSuchElementException e) {
+	        // Popup not found, test continues
+	    }
+
 	    
 	}
 	

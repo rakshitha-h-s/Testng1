@@ -104,7 +104,7 @@ public class AdminPage extends BasePage {
 	    }catch(TimeoutException e) {
 		       
 		    }
-	    catch(NoSuchElementException e) {	
+	    catch(NoSuchElementException e) {
 	    }
 	}
 	public void saveLanguageButton() throws InterruptedException
@@ -112,11 +112,22 @@ public class AdminPage extends BasePage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(saveLanguage));
 	    saveLanguage.click();
+	    Thread.sleep(3000);
+	    try {
 	    WebElement popUp = driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
-	    wait.until(ExpectedConditions.visibilityOf(popUp));
+	    //wait.until(ExpectedConditions.visibilityOf(popUp));
 	    String message = popUp.getText();
-	    System.out.println("Popup message: " + message);   
-        Thread.sleep(3000);
+	    System.out.println("Popup message: " + message); 
+	    if(message.contains("Saved")) {
+	    	System.out.println("Popup message: " + message); 
+	    }
+	    else {
+	    	Assert.fail("not added! enter valid characters");
+	    }
+	    }catch(NoSuchElementException e)
+	    {
+	    }
+        Thread.sleep(2000);
 	    }
 
 	public void deleteLanguage(String language) throws InterruptedException
