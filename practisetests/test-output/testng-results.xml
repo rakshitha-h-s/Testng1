@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-21T15:01:15 IST" name="Default suite" finished-at="2024-03-21T15:01:24 IST" duration-ms="8496">
+  <suite started-at="2024-03-26T11:31:59 IST" name="Default suite" finished-at="2024-03-26T11:32:02 IST" duration-ms="2636">
     <groups>
     </groups>
-    <test started-at="2024-03-21T15:01:15 IST" name="Default test" finished-at="2024-03-21T15:01:24 IST" duration-ms="8496">
-      <class name="practiseTests.PractiseLoginPopUp">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:practiseTests.PractiseLoginPopUp@b2c9a9c]" started-at="2024-03-21T15:01:15 IST" name="setUp" finished-at="2024-03-21T15:01:19 IST" duration-ms="4286" status="PASS">
+    <test started-at="2024-03-26T11:31:59 IST" name="Default test" finished-at="2024-03-26T11:32:02 IST" duration-ms="2636">
+      <class name="practiseTests.PractiseDoubleClick">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:practiseTests.PractiseDoubleClick@b2c9a9c]" started-at="2024-03-26T11:31:59 IST" name="setUp" finished-at="2024-03-26T11:32:01 IST" duration-ms="2215" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginPopUp()[pri:0, instance:practiseTests.PractiseLoginPopUp@b2c9a9c]" started-at="2024-03-21T15:01:19 IST" name="loginPopUp" finished-at="2024-03-21T15:01:23 IST" duration-ms="3931" status="PASS">
+        <test-method signature="doubleClick()[pri:0, instance:practiseTests.PractiseDoubleClick@b2c9a9c]" started-at="2024-03-26T11:32:01 IST" name="doubleClick" finished-at="2024-03-26T11:32:01 IST" duration-ms="225" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginPopUp -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:practiseTests.PractiseLoginPopUp@b2c9a9c]" started-at="2024-03-21T15:01:23 IST" name="tearDown" finished-at="2024-03-21T15:01:24 IST" duration-ms="220" status="PASS">
+        </test-method> <!-- doubleClick -->
+        <test-method is-config="true" signature="driverQuit()[pri:0, instance:practiseTests.PractiseDoubleClick@b2c9a9c]" started-at="2024-03-26T11:32:01 IST" name="driverQuit" finished-at="2024-03-26T11:32:02 IST" duration-ms="154" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- practiseTests.PractiseLoginPopUp -->
+        </test-method> <!-- driverQuit -->
+      </class> <!-- practiseTests.PractiseDoubleClick -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

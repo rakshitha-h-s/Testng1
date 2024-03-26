@@ -71,7 +71,7 @@ public class PimPage extends BasePage{
 	    Thread.sleep(3000);
 	    try {
 	        WebElement popUp = driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
-	        String message = popUp.getText();
+	        String message = popUp.getText(); 
 	        if(!message.contains("No Records")) {       	
 	        System.out.println("Search success " + message);
 	        }
