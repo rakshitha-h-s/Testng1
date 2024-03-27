@@ -52,6 +52,10 @@ private WebDriverWait wait;
 	         wait.until(ExpectedConditions.visibilityOf(pimButton));
 	        pimButton.click();
 	    }
+	    public boolean isLoginPage()
+	    {
+	    	return driver.getCurrentUrl().equals("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+	    }
 
 	    public boolean isLoginSuccessful() {
 	        return driver.getCurrentUrl().equals("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");

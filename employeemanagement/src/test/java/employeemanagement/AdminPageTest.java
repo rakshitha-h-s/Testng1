@@ -1,6 +1,7 @@
 package employeemanagement;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import employeemanagement.common.pages.AdminPage;
@@ -12,6 +13,19 @@ public class AdminPageTest extends BasePage {
 	private static LoginPage login;
 	private static WebDriver driver;
 	private static AdminPage admin;
+	@Test
+	public void testAdminPage() throws InterruptedException
+	{
+		login=getLogin();
+		AdminPage.loginStep(login);
+		admin=getAdmin();
+		admin.clickAdminButton();
+		boolean res=admin.isAdminPage();
+		if(!res)
+		{
+			Assert.fail("not an admin page");
+		}
+	}
 	@Test
 	public void testAddLanguage() throws InterruptedException
 	{
