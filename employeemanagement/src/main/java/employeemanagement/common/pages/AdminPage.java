@@ -117,7 +117,6 @@ public class AdminPage extends BasePage {
 	    WebElement popUp = driver.findElement(By.xpath("//*[@id='oxd-toaster_1']"));
 	    //wait.until(ExpectedConditions.visibilityOf(popUp));
 	    String message = popUp.getText();
-	    System.out.println("Popup message: " + message); 
 	    if(message.contains("Saved")) {
 	    	System.out.println("Popup message: " + message); 
 	    }

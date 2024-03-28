@@ -150,13 +150,13 @@ public class PimPageTest extends BasePage {
 		login=getLogin(); 
 		PimPage.loginStep(login);
 		pim=getPimPage();
-		pim.setUsername("sam");
-		pim.setEmployeeId("0449");
-		pim.setEmployeeStatus1("Full-Time Probation");
+		pim.setUsername("Odis Adalwin");
+		pim.setEmployeeId("0024");
+		pim.setEmployeeStatus1("Full-Time Permanent");
 		pim.setIncludeCategory1("Current Employees Only");
-		pim.superVisor("Odis Adalwin");
-		pim.setJobTitle("Database Administrator");
-		pim.setSubUnit1("Engineering");
+		pim.superVisor("Bob test Tester");
+		pim.setJobTitle("HR Manager");
+		pim.setSubUnit1("Human Resources");
 		pim.clickButton();
 		   
 	}

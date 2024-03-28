@@ -26,7 +26,7 @@ public class PimPage extends BasePage{
 	private WebDriver driver;
 	@FindBy(how = How.XPATH, using = "//input[@placeholder='Type for hints...']")
 	private WebElement employeeName;
-	@FindBy(how=How.XPATH,using="//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space' and @data-v-408b665e='']")
+	@FindBy(how=How.XPATH,using="//button[@type='submit']")
 	private WebElement button;
 	@FindBy(how=How.XPATH,using="(//input[@class='oxd-input oxd-input--active'])[2]")
 	private WebElement employeeId;
@@ -81,7 +81,8 @@ public class PimPage extends BasePage{
 	    } catch (NoSuchElementException e) {
 	        // Popup not found, test continues
 	    }
-
+       scroll();
+       Thread.sleep(5000);
 	    
 	}
 	
@@ -124,10 +125,9 @@ public class PimPage extends BasePage{
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.visibilityOf(supervisorName));
-	    supervisorName.clear();
 	    supervisorName.sendKeys(name);
 	    Actions actions=new Actions(driver);
-	    Thread.sleep(3000);
+	    Thread.sleep(2000);
 	    actions.sendKeys(Keys.ARROW_DOWN).perform();    
 		actions.sendKeys(Keys.ENTER).perform(); 
 	}
